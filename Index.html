@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>AASTIK STORE</title>
+<style>
+:root{--bg:#0a0a0b;--card:#151518;--card2:#1d1d22;--line:#2a2a30;--red:#e11d2e;--red2:#ff4757;--txt:#fff;--mut:#9a9aa5;color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box;margin:0}html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{background:var(--bg);color:var(--txt);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.5;min-height:100vh}
+a{color:inherit;text-decoration:none}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:rgba(10,10,11,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:rgba(10,10,11,.92);z-index:11}
+.bar{max-width:1100px;margin:auto;padding:12px 16px;display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.logo{font-weight:900;font-size:1.5rem;letter-spacing:.18em;display:flex;align-items:center;gap:8px}
+.logo b{background:linear-gradient(135deg,var(--red),var(--red2));width:34px;height:34px;border-radius:10px;display:grid;place-items:center;letter-spacing:0;font-size:1.1rem}
+.logo small{color:var(--red2);font-size:.7rem;letter-spacing:.3em;font-weight:700}
+.search{flex:1;min-width:200px;background:var(--card);border:1px solid var(--line);border-radius:999px;padding:11px 18px;color:var(--txt);font-size:1rem;outline:none;transition:.2s}
+.search:focus{border-color:var(--red);box-shadow:0 0 0 3px rgba(225,29,46,.25)}
+main{max-width:1100px;margin:auto;padding:16px 16px 60px}
+.chips{display:flex;gap:8px;overflow-x:auto;padding:4px 0 12px;scrollbar-width:none}
+.chip{flex:none;padding:8px 16px;border-radius:999px;background:var(--card);border:1px solid var(--line);color:var(--txt);font-size:.9rem;cursor:pointer;transition:.2s}
+.chip.on,.chip:hover{background:var(--red);border-color:var(--red)}
+h2{font-size:1.25rem;margin:26px 0 12px;display:flex;align-items:center;gap:8px}h2::before{content:"";width:4px;height:18px;background:var(--red);border-radius:2px}
+.row{display:flex;gap:14px;overflow-x:auto;padding-bottom:8px;scroll-snap-type:x mandatory;scrollbar-width:none}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:14px;display:flex;flex-direction:column;gap:10px;transition:.25s;animation:up .4s both}
+.row .card{flex:none;width:260px;scroll-snap-align:start}
+.card:hover{transform:translateY(-4px);border-color:var(--red);box-shadow:0 10px 30px rgba(225,29,46,.15)}
+@keyframes up{from{opacity:0;transform:translateY(12px)}}
+.top{display:flex;gap:12px;align-items:center}
+.ic{flex:none;width:60px;height:60px;border-radius:16px;display:grid;place-items:center;font-weight:900;font-size:1.5rem;background:linear-gradient(135deg,var(--red),#4a0a10);overflow:hidden}
+.ic img{width:100%;height:100%;object-fit:cover}
+.nm{font-weight:700;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.meta{color:var(--mut);font-size:.82rem}
+.btn{display:inline-flex;justify-content:center;align-items:center;gap:6px;background:linear-gradient(135deg,var(--red),var(--red2));color:#fff;border:0;border-radius:12px;padding:11px 16px;font-weight:700;font-size:.95rem;cursor:pointer;transition:.2s}
+.btn:hover{filter:brightness(1.12)}.btn[aria-disabled=true]{background:var(--card2);color:var(--mut);pointer-events:none}
+.hero{background:linear-gradient(135deg,#3a0910,#120406 60%);border:1px solid var(--line);border-radius:22px;padding:28px 22px;margin:8px 0}
+.hero h1{font-size:clamp(1.5rem,5vw,2.4rem);line-height:1.15}.hero p{color:var(--mut);margin-top:8px;max-width:520px}
+.badge{font-size:.7rem;background:var(--red);padding:2px 8px;border-radius:999px;font-weight:700}
+.det{display:grid;gap:20px}
+.dh{display:flex;gap:18px;align-items:center;flex-wrap:wrap}.dh .ic{width:96px;height:96px;font-size:2.4rem;border-radius:24px}
+.shots{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory}
+.shot{flex:none;width:150px;height:300px;border-radius:16px;scroll-snap-align:start;background:linear-gradient(160deg,var(--card2),#2a0b10);border:1px solid var(--line);display:grid;place-items:center;color:var(--mut);font-size:.8rem;overflow:hidden}.shot img{width:100%;height:100%;object-fit:cover}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:10px}
+.fact{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px;text-align:center}.fact b{display:block}
+.box{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px}.box ol{padding-left:20px;color:#ddd}.box li{margin:6px 0}
+.empty{color:var(--mut);text-align:center;padding:40px 0}
+footer{border-top:1px solid var(--line);padding:24px 16px;text-align:center;color:var(--mut);font-size:.85rem}footer a{margin:0 10px;color:var(--txt)}footer a:hover{color:var(--red2)}
+.page{max-width:720px}.page p{color:#ccc;margin:10px 0}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style></head><body>
+<header><div class="bar">
+<a class="logo" href="#/"><b>A</b>AASTIK<small>STORE</small></a>
+<input id="q" class="search" type="search" placeholder="Search apps and games" aria-label="Search apps and games" autocomplete="off">
+</div></header>
+<main id="app"></main>
+<footer><a href="#/privacy">Privacy Policy</a><a href="#/terms">Terms of Use</a><a href="#/contact">Contact</a><p style="margin-top:10px">© AASTIK STORE. Only apps shared with the owner’s permission are listed.</p></footer>
+<script>
+/* STAGE 1 DATA: sample listings (original, fictional, no downloads). Stage 2 replaces this with the database. */
+var CATS=["Action","Racing","Adventure","Education","Photography","Editing","Music","Tools"];
+var APPS=[
+{id:"sample-1",name:"Sample Racer",type:"game",category:"Racing",version:"1.0.0",size:"—",developer:"Sample Dev",desc:"Placeholder listing that shows how a racing game page looks. Add real games from the admin panel in Stage 2.",icon:"",shots:[],url:"",featured:true,added:5},
+{id:"sample-2",name:"Sample Quest",type:"game",category:"Adventure",version:"1.0.0",size:"—",developer:"Sample Dev",desc:"Placeholder adventure game listing.",icon:"",shots:[],url:"",featured:true,added:4},
+{id:"sample-3",name:"Sample Strike",type:"game",category:"Action",version:"1.0.0",size:"—",developer:"Sample Dev",desc:"Placeholder action game listing.",icon:"",shots:[],url:"",featured:false,added:3},
+{id:"sample-4",name:"Sample Editor",type:"app",category:"Editing",version:"1.0.0",size:"—",developer:"Sample Dev",desc:"Placeholder editing app listing.",icon:"",shots:[],url:"",featured:true,added:2},
+{id:"sample-5",name:"Sample Toolbox",type:"app",category:"Tools",version:"1.0.0",size:"—",developer:"Sample Dev",desc:"Placeholder tools app listing.",icon:"",shots:[],url:"",featured:false,added:1}
+];
+var $=function(s){return document.querySelector(s)},app=$("#app"),cat="All";
+function esc(s){return String(s==null?"":s).replace(/[&<>"']/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]})}
+function safeUrl(u){return /^https:\/\//i.test(u||"")||/^\/[^\/]/.test(u||"")}
+function icon(a){return '<div class="ic">'+(safeUrl(a.icon)?'<img src="'+esc(a.icon)+'" alt="" loading="lazy">':esc(a.name.charAt(0).toUpperCase()))+'</div>'}
+function dl(a){return safeUrl(a.url)?'<a class="btn" href="'+esc(a.url)+'" download rel="noopener noreferrer">Download APK</a>':'<span class="btn" aria-disabled="true">No file yet</span>'}
+function card(a,i){return '<div class="card" style="animation-delay:'+(i||0)*50+'ms"><a class="top" href="#/app/'+esc(a.id)+'">'+icon(a)+'<div style="min-width:0"><div class="nm">'+esc(a.name)+'</div><div class="meta">'+esc(a.category)+'</div><div class="meta">v'+esc(a.version)+' · '+esc(a.size)+'</div></div></a>'+dl(a)+'</div>'}
+function row(t,l){return l.length?'<h2>'+t+'</h2><div class="row">'+l.map(card).join("")+'</div>':""}
+function chips(){return '<div class="chips">'+["All"].concat(CATS).map(function(c){return '<button class="chip'+(c===cat?' on':'')+'" data-c="'+c+'">'+c+'</button>'}).join("")+'</div>'}
+function filtered(){var q=$("#q").value.trim().toLowerCase();return APPS.filter(function(a){return(cat==="All"||a.category===cat)&&(!q||(a.name+" "+a.category+" "+a.developer+" "+a.desc).toLowerCase().indexOf(q)>-1)})}
+function home(){
+var q=$("#q").value.trim();var h=chips();
+if(q||cat!=="All"){var l=filtered();return h+'<h2>'+(q?'Results for “'+esc(q)+'”':esc(cat))+'</h2>'+(l.length?'<div class="grid">'+l.map(card).join("")+'</div>':'<p class="empty">Nothing found. Try another search or category.</p>')}
+var by=function(f){return APPS.filter(f).sort(function(a,b){return b.added-a.added})};
+if(!APPS.length)return h+'<p class="empty">No apps yet.</p>';
+return '<div class="hero"><span class="badge">AASTIK STORE</span><h1 style="margin-top:10px">Apps and games for your Android phone.</h1><p>Hand-picked downloads, shared with permission. Search, pick, install.</p></div>'+h
++row("Featured",by(function(a){return a.featured}))
++row("Trending Games",by(function(a){return a.type==="game"}))
++row("New Apps",by(function(a){return a.type==="app"}))
++'<h2>Recommended Downloads</h2><div class="grid">'+by(function(a){return 1}).slice(0,8).map(card).join("")+'</div>'}
+function detail(id){
+var a=APPS.filter(function(x){return x.id===id})[0];if(!a)return '<p class="empty">App not found. <a href="#/" style="color:var(--red2)">Back to store</a></p>';
+var rel=APPS.filter(function(x){return x.id!==a.id&&(x.category===a.category||x.type===a.type)}).slice(0,6);
+var shots=a.shots&&a.shots.length?a.shots.filter(safeUrl).map(function(s){return '<div class="shot"><img src="'+esc(s)+'" alt="Screenshot of '+esc(a.name)+'" loading="lazy"></div>'}).join(""):'<div class="shot">No screenshots yet</div>';
+return '<div class="det"><a href="#/" class="meta">← Back</a><div class="dh">'+icon(a)+'<div style="flex:1;min-width:200px"><h1>'+esc(a.name)+'</h1><div class="meta">'+esc(a.developer)+' · '+esc(a.category)+' · '+(a.type==="game"?"Game":"App")+'</div><div style="margin-top:12px">'+dl(a)+'</div></div></div>'
++'<div class="facts"><div class="fact"><b>v'+esc(a.version)+'</b><span class="meta">Version</span></div><div class="fact"><b>'+esc(a.size)+'</b><span class="meta">File size</span></div><div class="fact"><b>'+esc(a.developer)+'</b><span class="meta">Developer</span></div></div>'
++'<div><h2>Screenshots</h2><div class="shots">'+shots+'</div></div>'
++'<div class="box"><h2 style="margin-top:0">About</h2><p style="white-space:pre-wrap;color:#ccc">'+esc(a.desc)+'</p></div>'
++'<div class="box"><h2 style="margin-top:0">How to install on Android</h2><ol><li>Tap <b>Download APK</b> and allow the download.</li><li>Open the file from your notifications or the Files / Downloads app.</li><li>If asked, tap <b>Settings</b> and allow installs from this browser. Only do this for sources you trust.</li><li>Go back and tap <b>Install</b>, then <b>Open</b>.</li><li>Optionally turn the “install unknown apps” permission back off.</li></ol></div>'
++(rel.length?row("Related apps and games",rel):"")+'</div>'}
+function page(t,ps){return '<div class="page"><a href="#/" class="meta">← Back</a><h1 style="margin:10px 0">'+t+'</h1>'+ps.map(function(p){return '<p>'+p+'</p>'}).join("")+'</div>'}
+var PAGES={
+privacy:["Privacy Policy",["AASTIK STORE does not require visitors to create an account. We do not sell personal data.","The site may keep basic technical logs (such as IP address and browser type) through its hosting provider for security and reliability.","Administrators sign in with a protected account. Admin credentials are never shown to visitors.","Downloads are served from files or links chosen by the site owner. Third-party links are governed by their own policies.","Questions about privacy? Use the Contact page."]],
+terms:["Terms of Use",["Apps and games listed on AASTIK STORE are provided only with the permission of their rights holders.","Downloads are provided as is. Install apps only from sources you trust and at your own risk.","If you own content listed here and want it removed, contact us and it will be taken down promptly.","We may update or remove listings and these terms at any time."]],
+contact:["Contact",["Questions, removal requests or developer submissions: email <b>your-email@example.com</b> (the owner can replace this in Stage 2 settings)."]]};
+function render(){var h=location.hash||"#/",m;
+if(m=h.match(/^#\/app\/(.+)$/))app.innerHTML=detail(decodeURIComponent(m[1]));
+else if(m=h.match(/^#\/(privacy|terms|contact)$/)){var p=PAGES[m[1]];app.innerHTML=page(p[0],p[1])}
+else app.innerHTML=home();
+document.title=(m&&m[1]&&PAGES[m[1]]?PAGES[m[1]][0]+" · ":"")+"AASTIK STORE";window.scrollTo(0,0)}
+function refresh(){var y=scrollY;app.innerHTML=home();scrollTo(0,y)}
+app.addEventListener("click",function(e){var c=e.target.closest(".chip");if(c){cat=c.dataset.c;refresh()}});
+$("#q").addEventListener("input",function(){if(location.hash&&location.hash!=="#/"){location.hash="#/"}else refresh()});
+window.addEventListener("hashchange",render);render();
+</script></body></html>
